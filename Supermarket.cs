@@ -21,6 +21,49 @@ namespace SuperMarketSimulation
     /// </summary>
     class Supermarket
     {
+        #region MyRegion
         public int EventCounter { get; set; }
+        public int Arrivals { get; set; }
+        public int Departures { get; set; }
+        public int LongestQueue { get; set; }
+        public PriorityQueue<Event> Events;
+        public List<Queue<Customer>> Registers;
+        public int NumCustomers;
+        public int NumHours;
+        public int NumRegisters;
+        public Double ExpectedTime;
+        #endregion
+
+        #region Constructor
+        public Supermarket(int numCustomers, int numHours, int numRegisters, Double expectedTime)
+        {
+            NumCustomers = numCustomers;
+            NumHours = numHours;
+            NumRegisters = numHours;
+            ExpectedTime = expectedTime;
+            for (int i = 0; i < NumRegisters; i++)
+            {
+                Registers.Add(new Queue<Customer>());
+            }
+        }
+        #endregion
+
+        #region Methods
+
+        public override string ToString()
+        {
+            String str = "";
+            bool NextLine = true;
+            while (NextLine)
+            {
+                NextLine = false;
+                for (int i = 0; i < NumRegisters; i++)
+                {
+
+                }
+            }
+        }
+
+        #endregion
     }
 }
