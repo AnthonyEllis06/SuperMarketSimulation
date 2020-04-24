@@ -50,19 +50,7 @@ namespace SuperMarketSimulation
 
         #region Methods
 
-        public override string ToString()
-        {
-            String str = "";
-            bool NextLine = true;
-            while (NextLine)
-            {
-                NextLine = false;
-                for (int i = 0; i < NumRegisters; i++)
-                {
-
-                }
-            }
-        }
+        
 
         #endregion
     }

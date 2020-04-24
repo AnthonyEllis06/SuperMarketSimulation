@@ -314,7 +314,7 @@ namespace SuperMarketSimulation
 					display += $"{InLine[i].Peek()}";
 
 					for (int n = 0; n < InLine[i].Count - 1; n++)
-						display += "| #### ";
+						display += " ";
 				}
 
 				display += "\r\n";
