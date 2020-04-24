@@ -1,9 +1,10 @@
-﻿// //////////////////////////////////////////////////////////////////////////////////////
+﻿////////////////////////////////////////////////////////////////////////////////////////
+//
 // Project:			SuperMarketSimulation
 // File Name: 		Event.cs
-// Description: 	Defines and generates events
+// Description: 	This class handles all of the events in the supermarket
 // Course:			CSCI 2210-001 - Data Structures
-// Author:			Anthony Ellis, ellisah@etsu.edu, East Tennessee State University
+// Author:			Hiren Patel, patelhm@etsu.edu, East Tennessee State University
 // Created:			04-22-2020
 //
 // ///////////////////////////////////////////////////////////////////////////////////////
@@ -18,14 +19,15 @@ namespace SuperMarketSimulation
     /// <summary>
     /// Enum EVENTTYPE
     /// </summary>
-    enum EVENTTYPE { ARRIVAL, lEAVE }
+    enum EVENTTYPE { ARRIVAL, LEAVE }
+
     enum EventEnum { ENTER, LEAVE }
     /// <summary>
     /// Class Event.
     /// </summary>
-    class Event:IComparable
+    class Event : IComparable
     {
-        
+
         #region Properties
         /// <summary>
         /// Gets or sets the current customer.
@@ -33,19 +35,35 @@ namespace SuperMarketSimulation
         /// <value>The curr customer.</value>
         public Customer CurrCustomer { get; set; }
 
-        public DateTime Time  { get; set; }
-        public EVENTTYPE Type { get; set; }
+        public DateTime Time { get; set; }
+
+        public EVENTTYPE Type
+        {
+            get; set;
+        }
         #endregion
 
         #region Constructors
+        public Event()
+        {
+            Type = EVENTTYPE.ARRIVAL;
+            Time = DateTime.Now;
+            CurrCustomer = null;
+        } // end Event
+
         /// <summary>
         /// Initializes a new instance of the <see cref="Event"/> class.
         /// </summary>
-        public Event() { }
+        public Event(EVENTTYPE eventType, DateTime dateTime)
+        {
+            Type = eventType;
+            Time = dateTime;
+            CurrCustomer = null;
+        }
         #endregion
 
         #region Overridden Methods 
-        
+
         /// <summary>
         /// Compares the current instance with another object of the same type and returns an
         /// integer that indicates whether the current instance precedes, follows, or occurs in
@@ -59,9 +77,9 @@ namespace SuperMarketSimulation
         /// <exception cref="NotImplementedException"></exception>
         public int CompareTo(object obj)
         {
-            if(!(obj is Event))
+            if (!(obj is Event))
                 throw new ArgumentException("The argument is not an Event object");
-            Event e = (Event) obj;
+            Event e = (Event)obj;
             return (e.Time.CompareTo(Time));
         }
 

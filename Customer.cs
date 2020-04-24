@@ -1,9 +1,10 @@
-﻿// //////////////////////////////////////////////////////////////////////////////////////
+﻿////////////////////////////////////////////////////////////////////////////////////////
+//
 // Project:			SuperMarketSimulation
 // File Name: 		Customer.cs
-// Description: 	Customer class used to define each customer.
+// Description: 	This class is used to define all the customers
 // Course:			CSCI 2210-001 - Data Structures
-// Author:			Anthony Ellis, ellisah@etsu.edu, East Tennessee State University
+// Author:			Hiren Patel, patelhm@etsu.edu, East Tennessee State University
 // Created:			04-22-2020
 //
 // ///////////////////////////////////////////////////////////////////////////////////////
@@ -33,12 +34,14 @@ namespace SuperMarketSimulation
         /// Gets or sets the arrival time.
         /// </summary>
         /// <value>The arrival time.</value>
-        public int ArrivalTime { get; set; } 
+        public Event ArrivalTime { get; set; }
         /// <summary>
         /// Gets or sets the time to serve the customer at each register.
         /// </summary>
         /// <value>The time to serve.</value>
-        public int TimeToServe { get; set; }
+        public Event TimeToServe { get; set; }
+
+        public Event Leave { get; set; }
         #endregion
 
         #region Constructors        
@@ -48,17 +51,20 @@ namespace SuperMarketSimulation
         public Customer()
         {
             CustomerID = 0;
-            TimeToServe = 0;
+            ArrivalTime = null;
+            Leave = null;
         }
         /// <summary>
         /// Initializes a new parameterized instance of the <see cref="Customer"/> class.
         /// </summary>
         /// <param name="id">The identifier used for each customer.</param>
         /// <param name="timeToServe">The time to serve the customer during the transaction.</param>
-        public Customer(int id, int timeToServe)
+        public Customer(int id, Event arrivalTime)
         {
             CustomerID = id;
-            TimeToServe = timeToServe;
+            ArrivalTime = arrivalTime;
+            Leave = null;
+
         }
 
         #endregion
@@ -74,7 +80,5 @@ namespace SuperMarketSimulation
         }
 
         #endregion
-
-
     }
 }

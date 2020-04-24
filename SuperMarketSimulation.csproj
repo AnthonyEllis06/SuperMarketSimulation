@@ -52,6 +52,7 @@
     <Compile Include="IPriorityQueue.cs" />
     <Compile Include="Node.cs" />
     <Compile Include="PriorityQueue.cs" />
+    <Compile Include="Simulation.cs" />
     <Compile Include="SimulationForm.cs">
       <SubType>Form</SubType>
     </Compile>
