@@ -31,15 +31,15 @@
             this.LargeThreePanel = new System.Windows.Forms.TableLayoutPanel();
             this.SettingsTableLayout = new System.Windows.Forms.TableLayoutPanel();
             this.OpenTimeGroupBox = new System.Windows.Forms.GroupBox();
-            this.TimeStartUpDown = new System.Windows.Forms.NumericUpDown();
+            this.OpenTimeInput = new System.Windows.Forms.TextBox();
             this.NumRegisterGroupBox = new System.Windows.Forms.GroupBox();
             this.NumRegisterUpDown = new System.Windows.Forms.NumericUpDown();
-            this.CloseTimeGroupBox = new System.Windows.Forms.GroupBox();
-            this.TimeCloseUpDown = new System.Windows.Forms.NumericUpDown();
+            this.CloseTimeInput = new System.Windows.Forms.GroupBox();
+            this.CloseStoreInput = new System.Windows.Forms.TextBox();
             this.CustNumGroupBox = new System.Windows.Forms.GroupBox();
             this.NumCustomerUpDown = new System.Windows.Forms.NumericUpDown();
             this.DurationGroupBox = new System.Windows.Forms.GroupBox();
-            this.CheckOutDurUpDown = new System.Windows.Forms.NumericUpDown();
+            this.DurationTimeInput = new System.Windows.Forms.TextBox();
             this.StartStopLayout = new System.Windows.Forms.TableLayoutPanel();
             this.StartButton = new System.Windows.Forms.Button();
             this.RegistersTextBox = new System.Windows.Forms.TextBox();
@@ -51,15 +51,12 @@
             this.LargeThreePanel.SuspendLayout();
             this.SettingsTableLayout.SuspendLayout();
             this.OpenTimeGroupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.TimeStartUpDown)).BeginInit();
             this.NumRegisterGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NumRegisterUpDown)).BeginInit();
-            this.CloseTimeGroupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.TimeCloseUpDown)).BeginInit();
+            this.CloseTimeInput.SuspendLayout();
             this.CustNumGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NumCustomerUpDown)).BeginInit();
             this.DurationGroupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.CheckOutDurUpDown)).BeginInit();
             this.StartStopLayout.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -91,7 +88,7 @@
             this.SettingsTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.SettingsTableLayout.Controls.Add(this.OpenTimeGroupBox, 0, 0);
             this.SettingsTableLayout.Controls.Add(this.NumRegisterGroupBox, 3, 0);
-            this.SettingsTableLayout.Controls.Add(this.CloseTimeGroupBox, 1, 0);
+            this.SettingsTableLayout.Controls.Add(this.CloseTimeInput, 1, 0);
             this.SettingsTableLayout.Controls.Add(this.CustNumGroupBox, 0, 0);
             this.SettingsTableLayout.Controls.Add(this.DurationGroupBox, 4, 0);
             this.SettingsTableLayout.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -104,7 +101,7 @@
             // 
             // OpenTimeGroupBox
             // 
-            this.OpenTimeGroupBox.Controls.Add(this.TimeStartUpDown);
+            this.OpenTimeGroupBox.Controls.Add(this.OpenTimeInput);
             this.OpenTimeGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.OpenTimeGroupBox.Location = new System.Drawing.Point(207, 3);
             this.OpenTimeGroupBox.Name = "OpenTimeGroupBox";
@@ -113,14 +110,15 @@
             this.OpenTimeGroupBox.TabStop = false;
             this.OpenTimeGroupBox.Text = "Time Store Opens HH:MM";
             // 
-            // TimeStartUpDown
+            // OpenTimeInput
             // 
-            this.TimeStartUpDown.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TimeStartUpDown.Location = new System.Drawing.Point(3, 16);
-            this.TimeStartUpDown.Name = "TimeStartUpDown";
-            this.TimeStartUpDown.Size = new System.Drawing.Size(192, 20);
-            this.TimeStartUpDown.TabIndex = 0;
-            this.TimeStartUpDown.ValueChanged += new System.EventHandler(this.TimeStartUpDown_ValueChanged);
+            this.OpenTimeInput.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.OpenTimeInput.Location = new System.Drawing.Point(3, 16);
+            this.OpenTimeInput.Name = "OpenTimeInput";
+            this.OpenTimeInput.Size = new System.Drawing.Size(192, 20);
+            this.OpenTimeInput.TabIndex = 1;
+            this.OpenTimeInput.Text = "08:00";
+            this.OpenTimeInput.TextChanged += new System.EventHandler(this.OpenTimeInput_TextChanged);
             // 
             // NumRegisterGroupBox
             // 
@@ -140,27 +138,33 @@
             this.NumRegisterUpDown.Name = "NumRegisterUpDown";
             this.NumRegisterUpDown.Size = new System.Drawing.Size(192, 20);
             this.NumRegisterUpDown.TabIndex = 1;
+            this.NumRegisterUpDown.Value = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
             this.NumRegisterUpDown.ValueChanged += new System.EventHandler(this.NumRegisterUpDown_ValueChanged);
             // 
-            // CloseTimeGroupBox
+            // CloseTimeInput
             // 
-            this.CloseTimeGroupBox.Controls.Add(this.TimeCloseUpDown);
-            this.CloseTimeGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CloseTimeGroupBox.Location = new System.Drawing.Point(411, 3);
-            this.CloseTimeGroupBox.Name = "CloseTimeGroupBox";
-            this.CloseTimeGroupBox.Size = new System.Drawing.Size(198, 42);
-            this.CloseTimeGroupBox.TabIndex = 2;
-            this.CloseTimeGroupBox.TabStop = false;
-            this.CloseTimeGroupBox.Text = "Time Store Closes HH:MM";
+            this.CloseTimeInput.Controls.Add(this.CloseStoreInput);
+            this.CloseTimeInput.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CloseTimeInput.Location = new System.Drawing.Point(411, 3);
+            this.CloseTimeInput.Name = "CloseTimeInput";
+            this.CloseTimeInput.Size = new System.Drawing.Size(198, 42);
+            this.CloseTimeInput.TabIndex = 2;
+            this.CloseTimeInput.TabStop = false;
+            this.CloseTimeInput.Text = "Time Store Closes HH:MM";
             // 
-            // TimeCloseUpDown
+            // CloseStoreInput
             // 
-            this.TimeCloseUpDown.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TimeCloseUpDown.Location = new System.Drawing.Point(3, 16);
-            this.TimeCloseUpDown.Name = "TimeCloseUpDown";
-            this.TimeCloseUpDown.Size = new System.Drawing.Size(192, 20);
-            this.TimeCloseUpDown.TabIndex = 0;
-            this.TimeCloseUpDown.ValueChanged += new System.EventHandler(this.TimeCloseUpDown_ValueChanged);
+            this.CloseStoreInput.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CloseStoreInput.Location = new System.Drawing.Point(3, 16);
+            this.CloseStoreInput.Name = "CloseStoreInput";
+            this.CloseStoreInput.Size = new System.Drawing.Size(192, 20);
+            this.CloseStoreInput.TabIndex = 1;
+            this.CloseStoreInput.Text = "20:00";
+            this.CloseStoreInput.TextChanged += new System.EventHandler(this.CloseStoreInput_TextChanged);
             // 
             // CustNumGroupBox
             // 
@@ -177,14 +181,24 @@
             // 
             this.NumCustomerUpDown.Dock = System.Windows.Forms.DockStyle.Fill;
             this.NumCustomerUpDown.Location = new System.Drawing.Point(3, 16);
+            this.NumCustomerUpDown.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
             this.NumCustomerUpDown.Name = "NumCustomerUpDown";
             this.NumCustomerUpDown.Size = new System.Drawing.Size(192, 20);
             this.NumCustomerUpDown.TabIndex = 2;
+            this.NumCustomerUpDown.Value = new decimal(new int[] {
+            500,
+            0,
+            0,
+            0});
             this.NumCustomerUpDown.ValueChanged += new System.EventHandler(this.NumCustomerUpDown_ValueChanged);
             // 
             // DurationGroupBox
             // 
-            this.DurationGroupBox.Controls.Add(this.CheckOutDurUpDown);
+            this.DurationGroupBox.Controls.Add(this.DurationTimeInput);
             this.DurationGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DurationGroupBox.Location = new System.Drawing.Point(819, 3);
             this.DurationGroupBox.Name = "DurationGroupBox";
@@ -193,14 +207,15 @@
             this.DurationGroupBox.TabStop = false;
             this.DurationGroupBox.Text = "Expected Checkout Time MM:SS";
             // 
-            // CheckOutDurUpDown
+            // DurationTimeInput
             // 
-            this.CheckOutDurUpDown.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CheckOutDurUpDown.Location = new System.Drawing.Point(3, 16);
-            this.CheckOutDurUpDown.Name = "CheckOutDurUpDown";
-            this.CheckOutDurUpDown.Size = new System.Drawing.Size(194, 20);
-            this.CheckOutDurUpDown.TabIndex = 2;
-            this.CheckOutDurUpDown.ValueChanged += new System.EventHandler(this.CheckOutDurUpDown_ValueChanged);
+            this.DurationTimeInput.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DurationTimeInput.Location = new System.Drawing.Point(3, 16);
+            this.DurationTimeInput.Name = "DurationTimeInput";
+            this.DurationTimeInput.Size = new System.Drawing.Size(194, 20);
+            this.DurationTimeInput.TabIndex = 0;
+            this.DurationTimeInput.Text = "02:30";
+            this.DurationTimeInput.TextChanged += new System.EventHandler(this.DurationTimeInput_TextChanged);
             // 
             // StartStopLayout
             // 
@@ -255,25 +270,25 @@
             // LongestQueueLabel
             // 
             this.LongestQueueLabel.Name = "LongestQueueLabel";
-            this.LongestQueueLabel.Size = new System.Drawing.Size(245, 17);
+            this.LongestQueueLabel.Size = new System.Drawing.Size(253, 17);
             this.LongestQueueLabel.Spring = true;
             // 
             // EventsProcLabel
             // 
             this.EventsProcLabel.Name = "EventsProcLabel";
-            this.EventsProcLabel.Size = new System.Drawing.Size(245, 17);
+            this.EventsProcLabel.Size = new System.Drawing.Size(253, 17);
             this.EventsProcLabel.Spring = true;
             // 
             // ArrivalsLabel
             // 
             this.ArrivalsLabel.Name = "ArrivalsLabel";
-            this.ArrivalsLabel.Size = new System.Drawing.Size(245, 17);
+            this.ArrivalsLabel.Size = new System.Drawing.Size(253, 17);
             this.ArrivalsLabel.Spring = true;
             // 
             // DeparturesLabel
             // 
             this.DeparturesLabel.Name = "DeparturesLabel";
-            this.DeparturesLabel.Size = new System.Drawing.Size(245, 17);
+            this.DeparturesLabel.Size = new System.Drawing.Size(253, 17);
             this.DeparturesLabel.Spring = true;
             // 
             // SimulationForm
@@ -289,15 +304,15 @@
             this.LargeThreePanel.PerformLayout();
             this.SettingsTableLayout.ResumeLayout(false);
             this.OpenTimeGroupBox.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.TimeStartUpDown)).EndInit();
+            this.OpenTimeGroupBox.PerformLayout();
             this.NumRegisterGroupBox.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.NumRegisterUpDown)).EndInit();
-            this.CloseTimeGroupBox.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.TimeCloseUpDown)).EndInit();
+            this.CloseTimeInput.ResumeLayout(false);
+            this.CloseTimeInput.PerformLayout();
             this.CustNumGroupBox.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.NumCustomerUpDown)).EndInit();
             this.DurationGroupBox.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.CheckOutDurUpDown)).EndInit();
+            this.DurationGroupBox.PerformLayout();
             this.StartStopLayout.ResumeLayout(false);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
@@ -311,7 +326,7 @@
         private System.Windows.Forms.TableLayoutPanel LargeThreePanel;
         private System.Windows.Forms.TableLayoutPanel SettingsTableLayout;
         private System.Windows.Forms.GroupBox NumRegisterGroupBox;
-        private System.Windows.Forms.GroupBox CloseTimeGroupBox;
+        private System.Windows.Forms.GroupBox CloseTimeInput;
         private System.Windows.Forms.GroupBox CustNumGroupBox;
         private System.Windows.Forms.TableLayoutPanel StartStopLayout;
         private System.Windows.Forms.Button StartButton;
@@ -321,13 +336,13 @@
         private System.Windows.Forms.ToolStripStatusLabel ArrivalsLabel;
         private System.Windows.Forms.ToolStripStatusLabel DeparturesLabel;
         private System.Windows.Forms.NumericUpDown NumRegisterUpDown;
-        private System.Windows.Forms.NumericUpDown TimeCloseUpDown;
         private System.Windows.Forms.NumericUpDown NumCustomerUpDown;
         private System.Windows.Forms.TextBox RegistersTextBox;
         private System.Windows.Forms.GroupBox DurationGroupBox;
-        private System.Windows.Forms.NumericUpDown CheckOutDurUpDown;
         private System.Windows.Forms.GroupBox OpenTimeGroupBox;
-        private System.Windows.Forms.NumericUpDown TimeStartUpDown;
+        private System.Windows.Forms.TextBox OpenTimeInput;
+        private System.Windows.Forms.TextBox CloseStoreInput;
+        private System.Windows.Forms.TextBox DurationTimeInput;
     }
 }
 

@@ -134,6 +134,7 @@ namespace SuperMarketSimulation
 			InLine = new List<Queue<Customer>>();
 			EventPriorityQueue = new PriorityQueue<Event>();
 			StartSimulation();
+            Console.WriteLine(this.ToString());
 		}
 		#endregion
 
