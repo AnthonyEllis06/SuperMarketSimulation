@@ -14,7 +14,8 @@ namespace SuperMarketSimulation
     public partial class SimulationForm : Form
     {
         private Simulation Simulate;
-        private readonly String Pattern = @"^(20|21|22|23|[01]d|d)(([:][0-5]d){1,2})$";
+        private readonly String HourMinPattern = @"((20|21|22|23)|(0\d)|(1\d)):([0-5]\d)";
+        private readonly String MinSecondPattern = @"([0-5][\d]):([0-5][\d])";
         public SimulationForm()
         {
             InitializeComponent();
@@ -36,6 +37,11 @@ namespace SuperMarketSimulation
             {
                 StartButton.Enabled = false;
             }
+        }
+
+        private bool ValidateHours(String TimeString)
+        {
+            DateTime.TryParse()
         }
 
         private void NumCustomerUpDown_ValueChanged(object sender, EventArgs e)
